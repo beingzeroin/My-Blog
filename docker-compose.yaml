@@ -9,7 +9,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: beingzero
     volumes:
-      - ./app/static-files/my_blog_db.sql:/application/mysql-server/scripts/init.sql
+      - ./my_blog_db.sql:/application/mysql-server/scripts/init.sql
     ports:
       - 3306:3306
 
@@ -25,7 +25,7 @@ services:
     working_dir: /app
     volumes:
       - ./app:/app
-      - ./maven/.m2:/root/.m2
+      - ~/.m2:/root/.m2
     ports:
       - "28083:28083"
     command: mvn clean spring-boot:run
